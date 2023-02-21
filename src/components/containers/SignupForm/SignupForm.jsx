@@ -1,12 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function Auth() {
+const SignupForm = () => {
   return (
     <View>
-      <Text>Auth</Text>
+      <Text>SignupForm</Text>
     </View>
   )
 }
+
+export default SignupForm
 
 const styles = StyleSheet.create({})
