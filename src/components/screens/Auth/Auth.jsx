@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
+import Card from '../../HOC/Card/Card';
+
 
 export default function Auth() {
   return (
     <View>
-      <Text>Auth</Text>
+        <Card title ="Bienvenue" content="Veuillez vous authentifier"/>
+      <Text>Composant potentiel</Text>
     </View>
   )
 }
