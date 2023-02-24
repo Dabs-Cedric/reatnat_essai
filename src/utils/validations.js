@@ -24,3 +24,35 @@ export function  validateConfirmPassword(password,confirmPassword) {
 
 // Créer 4 fonctions qui retournent des chaînes de caractères pour les erreurs.
 // getEMailError(email) =>"Email incorrect ! " ou ""
+
+
+export function getEmailError(email) {
+	if (!validateEmail(email)) {
+		return "Email incorrecte!";
+	}
+	return "";
+}
+
+export function getPasswordError(password) {
+	if (!validatePassword(password)) {
+		return "Mot de pass trop court! Min. 6 caractères.";
+	}
+	return "";
+}
+
+export function getConfirmPasswordError(password, confirmPassword) {
+	if (!validateConfirmPassword(password, confirmPassword)) {
+		return "Les mots de passes ne sont pas identiques!";
+	}
+	return "";
+}
+
+export function getUsernameError(username) {
+	if (!validateUsernameTooShort(username)) {
+		return "Username trop court! Min. 3 caractères";
+	}
+	if (!validateUsernameTooLong(username)) {
+		return "Username trop long! Max. 10 caractères";
+	}
+	return "";
+}

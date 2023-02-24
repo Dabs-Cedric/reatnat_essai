@@ -2,6 +2,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import InputWithError from '../ui/InputWithError/InputWithError';
 import Btn from '../ui/Btn/Btn';
+import { UserContext } from '../../contexts/UserContext';
+import { getConfirmPasswordError, getEmailError, getPasswordError, getUsernameError, validateConfirmPassword, validatePassword, validateUsername } from '../../../utils/validations';
+
 
 //const SignupForm = () => {
 

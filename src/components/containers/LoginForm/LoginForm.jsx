@@ -3,6 +3,8 @@ import { useState } from 'react'
 import InputWithError from '../ui/InputWithError/InputWithError';
 import Btn from '../ui/Btn/Btn';
 import { AntDesign } from "@expo/vector-icons";
+import { getEmailError, getPasswordError, validatePassword } from '../../../utils/validations';
+
 
 const LoginForm = () => {
     const [emailInput, setEmailInput] = useState("");
@@ -19,15 +21,26 @@ const LoginForm = () => {
         setPasswordInput(text);
     }
 
-    function login() {
-        setEmailError(!emailInput.includes("@") ? "Email incorrect!" : "");
-        setPasswordError(passwordInput.length < 6 ? "Mot de passe trop court!" : "");
+    // function login() {
+    //     setEmailError(!emailInput.includes("@") ? "Email incorrect!" : "");
+    //     setPasswordError(passwordInput.length < 6 ? "Mot de passe trop court!" : "");
 
-        if (emailInput.includes("@") && passwordInput.length >= 6) {
-            //Envoyé les données vers une back-end
-            alert("Connexion réussie!");
-            return;
-        }
+    //     if (emailInput.includes("@") && passwordInput.length >= 6) {
+    //         //Envoyé les données vers une back-end
+    //         alert("Connexion réussie!");
+    //         return;
+    //     }
+    function login() {
+		setEmailError(getEmailError(emailInput));
+		setPasswordError(getPasswordError(passwordInput));
+
+		if (validateEmail(emailInput) && validatePassword(passwordInput)) {
+			//Envoyer les données vers une back-end
+			alert("Connexion réussie!");
+			return;
+		}
+
+
     }
 
 
