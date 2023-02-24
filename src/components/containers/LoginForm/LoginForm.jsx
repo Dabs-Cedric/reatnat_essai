@@ -1,5 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { useState } from 'react'
+import InputWithError from '../ui/InputWithError/InputWithError';
+import Btn from '../ui/Btn/Btn';
+import { AntDesign } from "@expo/vector-icons";
 
 const LoginForm = () => {
     const [emailInput, setEmailInput] = useState("");
@@ -31,30 +34,53 @@ const LoginForm = () => {
 
 
   return (
+    // <View style={styles.container}>
+    //     <TextInput
+    //             placeholder="exemple@exemple.com"
+    //             onChangeText={handleEmail}
+    //             value={emailInput}
+    //             keyboardType="email-address"
+    //         />
+    //   <Text>{emailError}</Text>
+    //   <TextInput
+    //             placeholder="password"
+    //             onChangeText={handlePassword}
+    //             value={passwordInput}
+    //             keyboardType="default"
+    //             secureTextEntry={true}
+    //         />
+    //     <Text>{passwordError}</Text>
+    //     <TouchableOpacity onPress={login}>
+    //         <Text>Se connecter</Text>
+    //     </TouchableOpacity>
+    // </View>
+
     <View style={styles.container}>
-        <TextInput
-                placeholder="exemple@exemple.com"
-                onChangeText={handleEmail}
-                value={emailInput}
-                keyboardType="email-address"
-            />
-      <Text>{emailError}</Text>
-      <TextInput
-                placeholder="password"
-                onChangeText={handlePassword}
-                value={passwordInput}
-                keyboardType="default"
-                secureTextEntry={true}
-            />
-        <Text>{passwordError}</Text>
-        <TouchableOpacity onPress={login}>
-            <Text>Se connecter</Text>
-        </TouchableOpacity>
-    </View>
+			<InputWithError
+				holder="Email"
+				valeur={emailInput}
+				action={handleEmail}
+				errorMessage={emailError}
+				type="email-address"
+			/>
+
+			<InputWithError
+				holder="Mot de passe"
+				valeur={passwordInput}
+				action={handlePassword}
+				errorMessage={passwordError}
+				type="default"
+				isPassword
+			/>
+
+			<Btn action={login} label="Se connecter">
+				<AntDesign name="login" size={24} color="whitesmoke" />
+			</Btn>
+		</View>
   );
 };
 
-export default LoginForm
+export default LoginForm;
 
 const styles = StyleSheet.create({
     container: {},
